@@ -57,4 +57,26 @@ public class BookDao implements SearchBookPort, RegisterBookPort, AddBookPort, D
         }
         throw new IllegalArgumentException("No existe libro para eliminar");
     }
+
+    @Override
+    public List<BookEntity> searchBook(String SearchA) {
+        List<BookEntity> resultados = new ArrayList<>();
+        listBooks.forEach(dato -> {
+            if (dato.getAuthor().contains(SearchA)) {
+                resultados.add(dato);
+            }
+        });
+        return resultados;
+    }
+        @Override
+        public List<BookEntity> searchBook(int year){
+            List<BookEntity> resultado = new ArrayList<>();
+            listBooks.forEach(dato -> {
+                if (dato.getYear()==year) {
+                    resultado.add(dato);
+                }
+            });
+            return resultado;
+        }
+
 }
