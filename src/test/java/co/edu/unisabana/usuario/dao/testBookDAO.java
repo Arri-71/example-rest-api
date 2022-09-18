@@ -1,5 +1,6 @@
 package co.edu.unisabana.usuario.dao;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -18,6 +19,20 @@ import co.edu.unisabana.usuario.service.library.model.CategoryBook;
 
 
 public class testBookDAO {
+    //tests unitarios funcion validateExistsBook
+    @Test
+    public void given_an_existing_book_wehn_validate_exist_book_return_true(){
+        BookDao testBookDao = new BookDao();
+        testBookDao.registerBook(new Book("Don Quijote", 1605, "miguel de servantes", false, CategoryBook.SOFT_COVER));
+        assertTrue(testBookDao.validateExistsBook("Don Quijote"));
+    }
+    @Test
+    public void given_an_inexisting_book_wehn_validate_exist_book_return_false(){
+        BookDao testBookDao = new BookDao();
+        testBookDao.registerBook(new Book("Don Quijote", 1605, "miguel de servantes", false, CategoryBook.SOFT_COVER));
+        assertFalse(testBookDao.validateExistsBook("maria"));
+    }
+    //test de las tres salidas addBook
     @Test
     public void given_an_existing_book_wehn_add_book_return_true(){
         BookDao testBookDao = new BookDao();
