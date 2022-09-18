@@ -39,10 +39,11 @@ public class BookDao implements SearchBookPort, RegisterBookPort, AddBookPort {
     public boolean addBook(String name) {
         for (BookEntity book : listBooks) {
             if (book.getName().equals(name)) {
+                if(book.getQuantity()>10) throw new IllegalArgumentException("cantidad de maxima de libros desbordada");
                 book.setQuantity(book.getQuantity() + 1);
                 return true;
             }
         }
-        throw new IllegalArgumentException("No existe libre para actualizar");
+        throw new IllegalArgumentException("No existe libro para actualizar");
     }
 }
