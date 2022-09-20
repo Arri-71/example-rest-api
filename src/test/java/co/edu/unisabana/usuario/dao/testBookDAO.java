@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -35,9 +34,9 @@ public class testBookDAO {
     //test de las tres salidas addBook
     @Test
     public void given_an_existing_book_wehn_add_book_return_true(){
-        BookDao testBookDao = new BookDao();
-        testBookDao.registerBook(new Book("Don Quijote", 1605, "miguel de servantes", false, CategoryBook.SOFT_COVER));
-        assertTrue(testBookDao.addBook("Don Quijote"));
+        BookDao testCreateBookDao = new BookDao();
+        testCreateBookDao.registerBook(new Book("Don Quijote", 1605, "miguel de servantes", false, CategoryBook.SOFT_COVER));
+        assertTrue(testCreateBookDao.addBook("Don Quijote"));
     }
     @Test
     public void given_an_existing_book_wehn_the_number_of_copys_is_equals_to_the_max_number_of_copys_trow_exeption(){
