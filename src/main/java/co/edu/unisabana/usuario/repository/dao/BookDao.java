@@ -47,6 +47,7 @@ public class BookDao implements SearchBookPort, RegisterBookPort, AddBookPort, D
         }
         throw new IllegalArgumentException("No existe libro para actualizar");
     }
+
     @Override
     public boolean deleteBook(String name) {
         for (BookEntity book : listBooks) {
@@ -68,8 +69,8 @@ public class BookDao implements SearchBookPort, RegisterBookPort, AddBookPort, D
         });
         return resultados;
     }
-        @Override
-        public List<BookEntity> searchBook(int year){
+    @Override
+    public List<BookEntity> searchBookYear(int year){
             List<BookEntity> resultado = new ArrayList<>();
             listBooks.forEach(dato -> {
                 if (dato.getYear()==year) {
@@ -78,5 +79,8 @@ public class BookDao implements SearchBookPort, RegisterBookPort, AddBookPort, D
             });
             return resultado;
         }
+    }
 
-}
+
+
+
