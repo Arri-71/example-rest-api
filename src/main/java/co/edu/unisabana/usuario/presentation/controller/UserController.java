@@ -1,8 +1,8 @@
-package co.edu.unisabana.usuario.controller;
+package co.edu.unisabana.usuario.presentation.controller;
 
 
-import co.edu.unisabana.usuario.dto.UserDTO;
-import co.edu.unisabana.usuario.dto.UserDTOResponse;
+import co.edu.unisabana.usuario.presentation.dto.UserDTO;
+import co.edu.unisabana.usuario.presentation.dto.UserDTOResponse;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;

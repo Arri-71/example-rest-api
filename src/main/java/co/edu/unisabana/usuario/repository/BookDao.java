@@ -69,17 +69,19 @@ public class BookDao implements SearchBookPort, RegisterBookPort, AddBookPort, D
         });
         return resultados;
     }
+
     @Override
-    public List<BookEntity> searchBookYear(int year){
-            List<BookEntity> resultado = new ArrayList<>();
-            listBooks.forEach(dato -> {
-                if (dato.getYear()==year) {
-                    resultado.add(dato);
-                }
-            });
-            return resultado;
-        }
+    public List<BookEntity> searchBook(int year) {
+        List<BookEntity> resultado = new ArrayList<>();
+        listBooks.forEach(dato -> {
+            if (dato.getYear()==year) {
+                resultado.add(dato);
+            }
+        });
+        return resultado;
     }
+    }
+
 
 
 

@@ -1,16 +1,16 @@
 package co.edu.unisabana.usuario.service.user;
 
 import co.edu.unisabana.usuario.service.model.User;
-import co.edu.unisabana.usuario.service.user.port.RegisterUserPort;
+import co.edu.unisabana.usuario.service.user.api.IRegisterUserPort;
 import org.springframework.stereotype.Service;
 
 @Service
 public class RegisterUserService {
 
-    private final RegisterUserPort registerUserPort;
+    private final IRegisterUserPort IRegisterUserPort;
 
-    RegisterUserService(RegisterUserPort registerUserPort) {
-        this.registerUserPort = registerUserPort;
+    RegisterUserService(IRegisterUserPort IRegisterUserPort) {
+        this.IRegisterUserPort = IRegisterUserPort;
     }
 
     //Un codigo con muchas salidas, tiene MAYOR complejidad ciclomatica
@@ -22,7 +22,7 @@ public class RegisterUserService {
             throw new RuntimeException("The age cannot be minior 18");
         }
 
-        boolean result = registerUserPort.addNewUser(user);
+        boolean result = IRegisterUserPort.addNewUser(user);
 
         if (result) {
             return 10;

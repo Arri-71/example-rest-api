@@ -26,8 +26,9 @@ public class testBookDAO {
         assertFalse(testBookDao.validateExistsBook("maria"));
     }
     //test de las tres salidas addBook
+
     @Test
-    public void given_an_existing_book_wehn_add_book_return_true(){
+    public void given_an_existing_book_wehn_add_book_return_true() {
         BookDao testBookDao = new BookDao();
         testBookDao.registerBook(new Book("Don Quijote", 1605, "miguel de servantes", false, CategoryBook.SOFT_COVER));
         assertTrue(testBookDao.addBook("Don Quijote"));

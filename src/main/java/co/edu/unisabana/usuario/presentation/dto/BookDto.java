@@ -1,4 +1,9 @@
-package co.edu.unisabana.usuario.dto;
+package co.edu.unisabana.usuario.presentation.dto;
+
+import co.edu.unisabana.usuario.service.library.model.Book;
+import co.edu.unisabana.usuario.service.library.model.CategoryBook;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
 import co.edu.unisabana.usuario.service.library.model.Book;
 import co.edu.unisabana.usuario.service.library.model.CategoryBook;

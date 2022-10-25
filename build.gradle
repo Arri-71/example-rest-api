@@ -2,6 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.7.2'
 	id 'io.spring.dependency-management' version '1.0.12.RELEASE'
 	id 'java'
+	id 'jacoco'
 }
 
 group = 'co.edu.unisabana'
@@ -13,6 +14,27 @@ repositories {
 }
 jacoco {
 	toolVersion = "0.8.8"
+}
+jacoco {
+	toolVersion = "0.8.8"
+}
+
+test {
+	useJUnitPlatform()
+	finalizedBy jacocoTestReport
+}
+jacocoTestReport {
+	dependsOn test // tests are required to run before generating the report
+
+	afterEvaluate {
+		classDirectories.setFrom(files(classDirectories.files.collect {
+			fileTree(dir: it, exclude: [
+					"**/dto/**",
+					"**/entity/*",
+					"**/model/*"
+			])
+		}))
+	}
 }
 
 test {
@@ -42,6 +64,7 @@ dependencies {
 	testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
+
 
 tasks.named('test') {
 	useJUnitPlatform()
